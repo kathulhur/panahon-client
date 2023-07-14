@@ -41,14 +41,14 @@ const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
                     width={128}
                     height={128}
                 />
-                <Stack 
-                    direction='row'
-                >
-                    <Heading
-                        as={'h3'}
-                        size={'4xl'}
-                    >{ temperature }</Heading>
-                    <Stack direction='column'>
+                <Stack direction='column'>
+                    <Stack 
+                        direction='row'
+                    >
+                        <Heading
+                            as={'h3'}
+                            size={'4xl'}
+                        >{ temperature }</Heading>
                         <Stack 
                             direction='row'
                             alignItems={'flex-start'}
@@ -69,11 +69,9 @@ const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
                                 &deg;F
                             </Text>
                         </Stack>
-                        <Text fontSize='sm' fontWeight='medium'>Chance of rain: {dailyChanceOfRain}%</Text>
-                        <Text fontSize='sm' fontWeight='medium'>Will it rain: {dailyWillItRain == 1 ? "Yes" : "No"}</Text>
-                        
                     </Stack>
-
+                    <Text fontSize='sm' fontWeight='medium'>Chance of rain: {dailyChanceOfRain}%</Text>
+                    <Text fontSize='sm' fontWeight='medium'>Will it rain: {dailyWillItRain == 1 ? "Yes" : "No"}</Text>
                 </Stack>
             </Stack>
         </Box>
