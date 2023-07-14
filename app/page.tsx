@@ -4,7 +4,7 @@ async function getData() {
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
     const apiKey = process.env.WEATHER_API_KEY
-    const url = `http://localhost:5000/api/weather/forecast/3/${'manila'}?key=${apiKey}`
+    const url = `https://panahon.onrender.com/api/weather/forecast/3/${'manila'}?key=${apiKey}`
     const response = await fetch(url)
    
     // Recommendation: handle errors
