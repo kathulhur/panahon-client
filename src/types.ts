@@ -18,6 +18,8 @@ export interface Day {
     avgTempC:  number;
     avgTempF:  number;
     condition: Condition;
+    dailyChanceOfRain: number;
+    dailyWillItRain: number;
 }
 
 export interface Condition {

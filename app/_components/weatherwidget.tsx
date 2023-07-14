@@ -12,7 +12,7 @@ export interface WeatherWidgetProps extends BoxProps {
 
 const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
     const { date, day } = weather
-
+    const { dailyWillItRain, dailyChanceOfRain } = day
     const { unitOfMeasure, setUnitOfMeasure } = useContext(UnitOfMeasureContext)
     const [temperature, setTemperature] = useState(day.avgTempC)
     
@@ -48,26 +48,30 @@ const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
                         as={'h3'}
                         size={'4xl'}
                     >{ temperature }</Heading>
-
-                    <Stack 
-                        direction='row'
-                        alignItems={'flex-start'}
-                    >
-                        <Text
-                            as={'button'}
-                            {...(unitOfMeasure === UnitOfMeasure.Celsius ? { fontWeight: 'bold' } : {})}
-                            onClick={() => setUnitOfMeasure(UnitOfMeasure.Celsius)}
+                    <Stack direction='column'>
+                        <Stack 
+                            direction='row'
+                            alignItems={'flex-start'}
                         >
-                            &deg;C
-                        </Text>
-                        <Text>|</Text>
-                        <Text
-                            as={'button'}
-                            {...(unitOfMeasure === UnitOfMeasure.Fahrenheit ? { fontWeight: 'bold' } : {})}
-                            onClick={() => setUnitOfMeasure(UnitOfMeasure.Fahrenheit)}
-                        >
-                            &deg;F
-                        </Text>
+                            <Text
+                                as={'button'}
+                                {...(unitOfMeasure === UnitOfMeasure.Celsius ? { fontWeight: 'bold' } : {})}
+                                onClick={() => setUnitOfMeasure(UnitOfMeasure.Celsius)}
+                            >
+                                &deg;C
+                            </Text>
+                            <Text>|</Text>
+                            <Text
+                                as={'button'}
+                                {...(unitOfMeasure === UnitOfMeasure.Fahrenheit ? { fontWeight: 'bold' } : {})}
+                                onClick={() => setUnitOfMeasure(UnitOfMeasure.Fahrenheit)}
+                            >
+                                &deg;F
+                            </Text>
+                        </Stack>
+                        <Text fontSize='sm' fontWeight='medium'>Chance of rain: {dailyChanceOfRain}%</Text>
+                        <Text fontSize='sm' fontWeight='medium'>Will it rain: {dailyWillItRain == 1 ? "Yes" : "No"}</Text>
+                        
                     </Stack>
 
                 </Stack>
