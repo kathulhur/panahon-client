@@ -13,23 +13,21 @@ export interface WeatherDashboardProps extends BoxProps {
 const WeatherDashboard = ({data, ...props}: WeatherDashboardProps) => {
     const [selectedForecastDate, setSelectedForecastDate] = useState<string|null>(data.forecast[0].date)
 
-    
-
     const selectedForecast = data.forecast.find((forecast) => forecast.date === selectedForecastDate)
-    
+    const matchedLocation = data.location
     return (
         <UnitOfMeasureContextProvider>
             <Box {...props}>
-                <WeatherWidget weather={selectedForecast} />
+                <WeatherWidget location={matchedLocation} weather={selectedForecast} />
                 <Stack direction='row' justifyContent={'center'} marginTop={16}>
                     {data.forecast.map((weather, index) => (
                         <WeatherCard 
-                            key={index}
+                        key={index}
                             weather={weather}
                             isSelected={weather.date === selectedForecastDate}
                             onClick={() => setSelectedForecastDate(weather.date)}
-                        />
-                        ))}
+                            />
+                            ))}
                 </Stack>
             </Box>
         </UnitOfMeasureContextProvider>

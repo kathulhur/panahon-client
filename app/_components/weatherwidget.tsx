@@ -2,20 +2,22 @@
 
 import { Box, BoxProps, Heading, Image, Stack, Text } from "@chakra-ui/react"
 import { useContext, useEffect, useState } from "react"
-import { Forecast, UnitOfMeasure } from "../../src/types"
+import { Forecast, Location, UnitOfMeasure } from "../../src/types"
 import { UnitOfMeasureContext } from "./unitOfMeasureContext"
+import LocationInput from "./LocationInput"
 
 export interface WeatherWidgetProps extends BoxProps {
     weather: Forecast
+    location: Location
 }
 
 
-const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
+const WeatherWidget = ({ weather, location, ...props }: WeatherWidgetProps) => {
     const { date, day } = weather
     const { dailyWillItRain, dailyChanceOfRain } = day
     const { unitOfMeasure, setUnitOfMeasure } = useContext(UnitOfMeasureContext)
     const [temperature, setTemperature] = useState(day.avgTempC)
-    
+    const { name, region, country  } = location
     useEffect(() => {
         if (unitOfMeasure === UnitOfMeasure.Celsius) {
             setTemperature(day.avgTempC)
@@ -29,7 +31,17 @@ const WeatherWidget = ({ weather, ...props }: WeatherWidgetProps) => {
         <Box {...props}
         >
             <Heading textAlign={'center'}>Ulat Panahon</Heading>
-            <Text textAlign={'center'} fontSize={'sm'}>A 3 day weather forecast</Text>
+            <Text textAlign={'center'} fontSize={'sm'}>A 3-day weather forecast</Text>
+            <LocationInput />
+
+            <Heading
+                marginTop={'2rem'}
+                marginBottom={'1rem'}
+                size={'sm'}
+                textAlign={'center'}
+            >
+                {name}, {region}, {country}
+            </Heading>
             <Stack 
                 direction='row'
                 alignItems={'center'}
