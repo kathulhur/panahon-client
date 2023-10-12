@@ -1,4 +1,11 @@
 import { Providers } from "./providers";
+import "./globals.css";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+    title: "Panahon Client",
+    description: "A 3-day weather forecast",
+};
 
 export default function RootLayout({
     children,
@@ -9,7 +16,7 @@ export default function RootLayout({
         <html lang="en">
             <head>
                 <meta
-                    http-equiv="Content-Security-Policy"
+                    httpEquiv="Content-Security-Policy"
                     content="upgrade-insecure-requests"
                 />
             </head>
