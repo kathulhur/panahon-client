@@ -27,7 +27,7 @@ export default function LocationInput() {
                     maxWidth={"24rem"}
                     minWidth={"12rem"}
                     type="text"
-                    placeholder="manila"
+                    placeholder="Enter Location here"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />

@@ -25,6 +25,7 @@ const WeatherDashboard = ({ data, ...props }: WeatherDashboardProps) => {
 
     useEffect(() => {
         async function getForecast() {
+            if (!location) return;
             try {
                 const response = await getData(location);
                 setForecast(response);
