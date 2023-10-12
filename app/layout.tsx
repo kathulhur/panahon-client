@@ -20,7 +20,7 @@ export default function RootLayout({
                     content="upgrade-insecure-requests"
                 />
             </head>
-            <body>
+            <body className="h-screen ">
                 <Providers>{children}</Providers>
             </body>
         </html>
