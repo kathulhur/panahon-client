@@ -89,7 +89,8 @@ const WeatherWidget = ({
                         </Stack>
                     </Stack>
                     <Text fontSize="sm" fontWeight="medium">
-                        Chance of rain: {daily_chance_of_rain}%
+                        Chance of rain: {daily_chance_of_rain}
+                        {"%"}
                     </Text>
                 </Stack>
             </Stack>
