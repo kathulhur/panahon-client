@@ -2,22 +2,24 @@ import Image from "next/image";
 
 export const Footer = () => {
     return (
-        <div className="p-4 bg-gray-300 grid grid-cols-2">
-            <a href="https://github.com/kathulhur/panahon-client">
-                <Image
-                    src={"/images/github.svg"}
-                    alt="github icon"
-                    width={32}
-                    height={32}
-                />
-            </a>
-            <div className="text-right">
+        <div className="p-4 bg-gray-300 grid sm:grid-cols-2">
+            <div className="place-self-center sm:place-self-start">
+                <a href="https://github.com/kathulhur/panahon-client">
+                    <Image
+                        src={"/images/github.svg"}
+                        alt="github icon"
+                        width={32}
+                        height={32}
+                    />
+                </a>
+            </div>
+            <div className="sm:text-right mt-4 sm:mt-0 text-center">
                 <p className="text-sm font-semibold">
                     © 2023 Joseph Crisostomo. All rights reserved.
                 </p>
                 <a
                     href="https://josephcrisostomo.vercel.app"
-                    className="text-sm font-semibold flex justify-end items-center cursor-pointer underline mt-2"
+                    className="text-sm font-semibold cursor-pointer mt-2 inline-flex items-center"
                 >
                     About the developer <ArrowTopRightOnSquare />
                 </a>

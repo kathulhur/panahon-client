@@ -24,7 +24,7 @@ export const ForecastDetail = ({
                 />
                 <div className="flex flex-col">
                     <div className="flex ">
-                        <span className="text-7xl font-bold">
+                        <span className="text-4xl sm:text-7xl font-bold">
                             {temperature}
                         </span>
                         <TemperatureUnitSelection />
