@@ -29,7 +29,7 @@ export const ForecastDetail = ({
                         </span>
                         <TemperatureUnitSelection />
                     </div>
-                    <p>Chance of rain: {chanceOfRain}</p>
+                    <p>Chance of rain: {chanceOfRain}%</p>
                 </div>
             </div>
         </div>
